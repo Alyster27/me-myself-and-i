@@ -1,0 +1,35 @@
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="secondary">
+                <ion-button color="primary" routerLink="contact-edit" expand="full">Add new Contact</ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+        <ion-list *ngFor="let contact of contacts">
+            <ion-list-content>
+                <ion-item>
+                    <ion-label [style.color]="contact.type">
+                        <ion-list-title>{{contact.name}}</ion-list-title><br>
+                        <a [href]="contact.phone" class="button button-positive">{{contact.phone}}</a><br>
+                        <a [href]="contact.mail" class="button button-positive">{{contact.mail}}</a><br>
+                        <a [href]="contact.address" class="button button-positive">{{contact.address}}</a>
+                        <ion-buttons slot="secondary">
+                            <ion-button color="primary" (click)="navigateToEditContact(contact.id)">
+                                <ion-icon name="document-text-outline"></ion-icon>
+                            </ion-button>
+                            <ion-button color="primary" (click)="deleteContact(contact.id)">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </ion-button>
+                            <ion-button color="primary" (click)="viewDetailContact(contact.id)">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+                    </ion-label>
+                </ion-item>
+            </ion-list-content>
+        </ion-list>
+    </ion-content>
+</ion-app>        

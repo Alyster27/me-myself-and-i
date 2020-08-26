@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/contact"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Back to List Contacts</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="addContactForm" (ngSubmit)="addContact()">
+        <ion-list>
+        <ion-item>
+            <ion-label color="primary">Name</ion-label>
+            <ion-input type="text" formControlName="name" [formControl]="addContactForm.controls['name']"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary">Phone</ion-label>
+            <ion-input type="text" formControlName="phone" [formControl]="addContactForm.controls['phone']"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary">Email</ion-label>
+            <ion-input type="email" formControlName="mail" [formControl]="addContactForm.controls['mail']"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary">Address</ion-label>
+            <ion-textarea type="text" formControlName="address" [formControl]="addContactForm.controls['address']"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Type</ion-label>
+            <select value="color" type="color" formControlType="type" [formControl]="addContactForm.controls['type']">
+              <option value="#D0312D">Professional</option>
+              <option value="#028A0F">Private</option>
+              <option value="#F3D617">Hobby</option>
+            </select>
+          </ion-item>
+    </ion-list>
+    <ion-buttons slot="secondary">
+        <ion-button expand="block" color="primary" type="submit" [disabled]="!addContactForm.valid">Save The Contact</ion-button>
+    </ion-buttons>
+    </form>
+</ion-content>

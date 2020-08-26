@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "me-myself-and-i-exo2": {
+      "hosting": {
+        "Me-myself-and-I-exo3": [
+          "me-myself-and-i-exo2"
+        ]
+      }
+    }
+  }
+}

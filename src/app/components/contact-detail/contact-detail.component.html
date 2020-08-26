@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/contact"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Back to List Contacts</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card *ngIf="contact">
+        <ion-card-content>
+            <ion-card-title [style.color]="contact.type">{{contact.name}}</ion-card-title>
+            <ion-card-subtitle>{{contact.phone}}</ion-card-subtitle>
+            <ion-card-subtitle>{{contact.mail}}</ion-card-subtitle>
+            <ion-card-subtitle>{{contact.address}}</ion-card-subtitle>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

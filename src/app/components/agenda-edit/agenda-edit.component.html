@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/agenda"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Back to List Events</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+<form [formGroup]="formEvent" (ngSubmit)="saveEvent()">
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary">Title</ion-label>
+            <ion-input type="text" formControlName="title" [formControl]="formEvent.controls['title']" placeholder="Event Title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Area</ion-label>
+            <ion-input type="text" formControlName="area" [formControl]="formEvent.controls['area']" placeholder="Event Title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Begin of the Event</ion-label>
+            <ion-input type="date" formControlName="dateBegin" [formControl]="formEvent.controls['dateBegin']"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">End of the Event</ion-label>
+            <ion-input type="date" formControlName="dateEnd" [formControl]="formEvent.controls['dateEnd']"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Contact</ion-label>
+            <!-- <ion-input type="text" placeholder="Contact Name" row="4" formControlName="contactName" [formControl]="formEvent.controls['contactName']"></ion-input> -->
+            <!-- <ion-select value="selectContact" formControlName="contactName" interface="popover">
+                <ion-select-option *ngFor="let user of contactOption" [value]="user.value">
+                    {{user.viewValue}}
+                </ion-select-option>
+              </ion-select> -->
+            <select value="selectContact" formControlName="contactName" interface="popover">
+                <option *ngFor="let user of contactOption" [value]="user.value">
+                  {{user.viewValue}}
+                </option>
+            </select>
+        </ion-item>
+    </ion-list>
+    <ion-buttons slot="secondary">
+        <ion-button expand="block" color="primary" type="submit" [disabled]="!formEvent.valid">Save the Event</ion-button>
+    </ion-buttons>
+</form>
+</ion-content>

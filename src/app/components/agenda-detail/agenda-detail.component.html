@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/agenda"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Back to Events List</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngIf="agenda">
+    <ion-card-header>
+        <ion-card-title>{{agenda.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-card-subtitle>{{agenda.dateBegin}}</ion-card-subtitle>
+        <ion-card-subtitle>{{agenda.dateEnd}}</ion-card-subtitle>
+        <div *ngFor="let detail of contact">
+            <h3 [style.color]="detail.type">{{detail.name}}</h3>
+            <p>{{detail.phone}}</p>
+            <p>{{detail.mail}}</p>
+            <p>{{detail.address}}</p>
+        </div>
+        <p>{{agenda.area}}</p>
+    </ion-card-content>
+</ion-card>
+    <div id='map-agenda' class='match-parent map'></div> 
+</ion-content>

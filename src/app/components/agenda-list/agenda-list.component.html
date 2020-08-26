@@ -1,0 +1,38 @@
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="secondary">
+                <ion-button color="primary" routerLink="agenda-edit" expand="full">Add new Event</ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content> 
+        <ion-list *ngFor="let item of agendaList">
+            <ion-list-content>
+                <ion-item>
+                    <ion-label>
+                        <ion-list-title>{{item.title}}</ion-list-title>
+                        <p>{{item.area}}</p>
+                        <p>{{item.contactName}}</p>
+                        <p>{{item.dateBegin}}</p>
+                        <p>{{item.dateEnd}}</p>
+                        <ion-buttons slot="secondary">
+                           <!--  <ion-button color="primary" (click)="navigateToEditAgenda(item.id)"> -->
+                            <ion-button color="primary" (click)="navigateTo(item.id, 'agenda-edit')">
+                                <ion-icon name="document-text-outline"></ion-icon>
+                            </ion-button>
+                            <ion-button color="primary" (click)="deleteAgendaEvent(item.id)">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </ion-button>
+                           <!--  <ion-button color="primary" (click)="viewAgendaDetail(item.id)"> -->
+                            <ion-button color="primary" (click)="navigateTo(item.id, 'agenda-detail')">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+                    </ion-label>
+                </ion-item>
+            </ion-list-content>
+        </ion-list>
+    </ion-content>
+</ion-app>
