@@ -22,7 +22,7 @@ export class ContactListComponent implements OnInit {
     private route: Router,
     private rs: MyContactsService,
     private alertController: AlertController
-    ) { }
+    ) {}
   
   ngOnInit() {
 
